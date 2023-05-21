@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
 
   def index
-    @lists = List.all
+    @list = List.all
 
   end
 
@@ -10,12 +10,14 @@ class ListsController < ApplicationController
   end
 
   def new
+    @movies = Movie.all
+
     @list = List.new
   end
 
   def create
     @list = List.new(list_params)
-    if List.save
+    if @list.save
       redirect_to list_path(@list)
     else
       render :new, status: unprocessable_entity
@@ -24,7 +26,7 @@ class ListsController < ApplicationController
 
 private
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :city)
   end
 
 end

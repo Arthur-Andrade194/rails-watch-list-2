@@ -1,0 +1,11 @@
+<div class="container">
+  <h1> Add Movie to list </h1>
+    <%= simple_form_for [@list, @bookmark] do |f|%>
+      <%= f.input :comment %>
+      <%= f.association :movie %>
+      <%= f.submit "Add to list", class: 'btn btn-primary'%>
+    <% end %>
+
+  <%= link_to "back", list_path(@list), class:"btn btn-primary mt-3" %>
+
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <h1> Create a List </h1>
+
+    <%= simple_form_for [@movie, @list] do |f| %>
+      <%= f.input :name  %>
+      <%= f.input :city  %>
+      <%= f.submit "Save"  %>
+    <% end %>
+
+
+  <%= link_to "back", lists_path, class:"btn btn-primary mt-3" %>
+
+
+</div>
