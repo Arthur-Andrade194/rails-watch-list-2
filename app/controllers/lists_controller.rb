@@ -1,12 +1,22 @@
 class ListsController < ApplicationController
 
   def index
-    @list = List.all
+    @lists = List.all
+    # The `geocoded` scope filters only lists with coordinates
+    @markers = @lists.geocoded.map do |list|
+      {
+        lat: list.latitude,
+        lng: list.longitude
+      }
+    end
+
 
   end
 
   def show
     @list = List.find(params[:id])
+
+
   end
 
   def new

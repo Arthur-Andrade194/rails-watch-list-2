@@ -17,6 +17,7 @@
       </div>
     </div>
   <% end %>
+
   <%= link_to "Add Movie",  new_list_bookmark_path(@list), class:"btn btn-success" %>
   <%= link_to  "back to list",  lists_path, class:"btn btn-primary" %>
   <h2>Created at Location: <%= @list.city  %></h2>

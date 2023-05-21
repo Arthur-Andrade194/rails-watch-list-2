@@ -2,11 +2,19 @@
 <div class="container">
   <h1>Index page </h1>
     <div class="list-group">
-      <% @list.each do |l| %>
+      <% @lists.each do |l| %>
           <%= l.name %>
           <%= l.city %>
+
           <%= link_to l.name, list_path(l), class: "list-group-item list-group-item-action" %>
       <% end %>
+
+      <div style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+
     </div>
   <%= link_to "Create a new List", new_list_path, class: "btn btn-primary mt-3" %>
 </div>
